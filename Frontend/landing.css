@@ -1,14 +1,11 @@
-
-
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #92B4EC;
 }
 
 .navbar {
-    background-color: #333;
+    background-color: #005A9C;
     color: #fff;
     padding: 20px;
     display: flex;
@@ -16,23 +13,17 @@ body {
     align-items: center;
 }
 
-.navbar img {
-    width: 100px;
-    height: auto;
-}
-
-.country-selector {
-    margin: 0 auto;
+.logo h2 {
+    color: #FFD700;
+    font-weight: bold;
 }
 
 .country-selector select {
     padding: 10px;
     font-size: 16px;
-}
-
-.create-buttons {
-    display: flex;
-    justify-content: flex-end;
+    border: 1px solid #DDD;
+    border-radius: 5px;
+    background-color: #fff;
 }
 
 .create-buttons button {
@@ -42,52 +33,71 @@ body {
     border: none;
     border-radius: 10px;
     margin-left: 5px;
-    background-color: #FFD24C;
+    background-color: #4CAF50;
+    color: #fff;
 }
 
 .hero {
     display: flex;
     justify-content: space-between;
-    padding: 50px 20px;
+    padding: 20px;
+    background-color: #B3E5FC;
 }
 
-.hero .left-side,
-.hero .right-side {
-    flex-basis: 48%;
+.image-gallery {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 20px 0;
+}
+
+.image-gallery img {
+    max-height: 200px;
+    margin-right: 10px;
+    border-radius: 10px;
+}
+
+.scroll-container {
+    background-color: #333;
+    overflow: auto;
+    white-space: nowrap;
+    padding: 10px;
+}
+
+.scroll-container img {
+    padding: 10px;
 }
 
 .view-all {
-    display: block;
-    margin-top: 10px;
-    color: blue;
-    text-decoration: underline;
-    cursor: pointer;
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: bold;
 }
 
-.platform {
-    text-align: center;
-    padding: 20px;
+.scroll-container {
+    display: flex;
+    overflow-x: auto;
+    padding: 10px 0;
+    white-space: nowrap;
 }
 
-.platform img {
-    max-width: 100%;
-    height: auto;
+.card {
+    background-color: #fff;
+    margin-right: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    min-width: 250px; /* Adjust the minimum width of the card */
 }
 
-.logo{
-    font-family: "Poppins", sans-serif;
-    color: #FFD24C;
+
+.card h3 {
+    margin-top: 0;
+    color: #005A9C; /* Theme color for headings */
 }
 
-/* Media query for responsiveness */
-@media screen and (max-width: 768px) {
-    .hero {
-        flex-direction: column;
-    }
-
-    .hero .left-side,
-    .hero .right-side {
-        flex-basis: 100%;
-        margin-bottom: 20px;
-    }
+.card p {
+    margin: 5px 0; /* Compact paragraph spacing */
+    color: #333; /* Darker text for contrast */
 }

@@ -1,16 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OneWorldRise - Landing Page</title>
     <link rel="stylesheet" href="landing.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Protest+Riot&display=swap" rel="stylesheet">
-
-   
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 </head>
-
 <body>
     <div class="navbar">
         <div class="logo">
@@ -22,27 +18,40 @@
                 <option value="IN">India</option>
                 <option value="UK">United Kingdom</option>
                 <option value="JP">Japan</option>
-              
+                <option value="CN">China</option>
+                <option value="DE">Germany</option>
+                <option value="FR">France</option>
+                <option value="BR">Brazil</option>
+                <option value="IT">Italy</option>
+                <option value="CA">Canada</option>
             </select>
         </div>
         <div class="create-buttons">
-            <button onclick="redirectToCreate('event')">Create Event</button>
-            <button onclick="redirectToCreate('blog')">Create Blog</button>
+            <a href="CreateEvent.html"><button>Create Event</button></a>
+            <a href="CreateBlog.html"><button>Create Blog</button></a>
         </div>
+    </div>
+
+    <div class="scroll-container">
+        <img src="clean.jpeg" alt="Cinque Terre" width="600" height="400">
+        <img src="poverty.avif" alt="Forest" width="600" height="400">
+        <img src="clothes.jpeg" alt="Northern Lights" width="600" height="400">
+        <img src="sustainable.jpeg" alt="Mountains" width="600" height="400">
     </div>
 
     <div class="hero">
         <div class="left-side">
             <h2>Trending Events</h2>
-            <div id="events-container">
-                <!-- Trending events will be dynamically loaded here -->
+            <div class="scroll-container" id="events-container">
+                
             </div>
             <a href="events.html" class="view-all">View All Events</a>
+
             <h2>Trending Blogs</h2>
-            <div id="blogs-container">
-                <!-- Trending blogs will be dynamically loaded here -->
+            <div class="scroll-container" id="blogs-container">
+                
             </div>
-            <a href="blogs.html" class="view-all">View All Blogs</a>
+            <a href="blogs.html" class="view-all">View All Blogs</a>   
         </div>
         <div class="right-side">
             <div class="platform">
@@ -51,59 +60,6 @@
             </div>
         </div>
     </div>
-
-    <script>
-        // Function to redirect to create event or create blog page
-        function redirectToCreate(type) {
-            if (type === 'event') {
-                window.location.href = 'create-event.html';
-            } else if (type === 'blog') {
-                window.location.href = 'create-blog.html';
-            }
-        }
-
-        // function to fatch the tranding data 
-        document.addEventListener('DOMContentLoaded', async function () {
-            const countrySelector = document.getElementById('country-selector');
-            const eventsContainer = document.getElementById('events-container');
-            const blogsContainer = document.getElementById('blogs-container');
-
-            // Fetch trending events and blogs based on selected country
-            countrySelector.addEventListener('change', async function () {
-                const selectedCountry = countrySelector.value;
-                try {
-                    const response = await fetch(`/api/trending/${selectedCountry}`);
-                    if (!response.ok) {
-                        throw new Error('Failed to fetch trending data');
-                    }
-                    const data = await response.json();
-
-                    // Clear previous content
-                    eventsContainer.innerHTML = '';
-                    blogsContainer.innerHTML = '';
-
-                    // Display trending events
-                    data.events.forEach(event => {
-                        const eventElement = document.createElement('div');
-                        eventElement.textContent = event.name;
-                        eventsContainer.appendChild(eventElement);
-                    });
-
-                    // Display trending blogs
-                    data.blogs.forEach(blog => {
-                        const blogElement = document.createElement('div');
-                        blogElement.textContent = blog.title;
-                        blogsContainer.appendChild(blogElement);
-                    });
-                } catch (error) {
-                    console.error('Error fetching trending data:', error.message);
-                }
-            });
-
-            // Trigger change event to load data for default selected country
-            countrySelector.dispatchEvent(new Event('change'));
-        });
-    </script>
+    <script src="landing.js"></script>
 </body>
-
 </html>
