@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Blog</title>
+    <link rel="stylesheet" href="blog.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Protest+Riot&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+          
+            <div class="logo">
+                <h2>OneWorldRise</h2>
+             </div>
+        
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>Create Blog</h1>
+        <form id="create-blog-form">
+            <div>
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" required>
+            </div>
+            <div>
+                <label for="author">Author:</label>
+                <input type="text" id="author" name="author" required>
+            </div>
+            <div>
+                <label for="content">Content:</label>
+                <textarea id="content" name="content" rows="10" required></textarea>
+            </div>
+            <div>
+                <label for="tags">Tags:</label>
+                <input type="text" id="tags" name="tags" required>
+            </div>
+            <button type="submit">Create Blog</button>
+        </form>
+    </div>
+
+    <script src="scripts.js">
+
+document.addEventListener('DOMContentLoaded', function () {
+    const createBlogForm = document.getElementById('create-blog-form');
+    
+    createBlogForm.addEventListener('submit', async function (event) {
+        event.preventDefault(); // Prevent default form submission
+        
+        const formData = new FormData(createBlogForm);
+        const blogData = {};
+        formData.forEach((value, key) => {
+            blogData[key] = value;
+        });
+
+        try {
+            const response = await fetch('/api/blogs', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(blogData)
+            });
+            
+            if (!response.ok) {
+                throw new Error('Failed to create blog');
+            }
+            
+            const createdBlog = await response.json();
+            alert('Blog created successfully!');
+            // Redirect to another page or perform any other action as needed
+        } catch (error) {
+            console.error('Error creating blog:', error.message);
+            // Handle error
+        }
+    });
+});
+
+    </script>
+</body>
+</html>
