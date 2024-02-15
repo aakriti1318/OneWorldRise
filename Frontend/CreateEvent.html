@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Event</title>
+    <link rel="stylesheet" href="event.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Protest+Riot&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h2>OneWorldRise</h2>
+             </div>
+           
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>Create Event</h1>
+        <form id="create-event-form">
+            <div>
+                <label for="name">Event Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div>
+                <label for="organizer">Organizer:</label>
+                <input type="text" id="organizer" name="organizer" required>
+            </div>
+            <div>
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location" required>
+            </div>
+            <div>
+                <label for="country">Country:</label>
+                <input type="text" id="country" name="country" required>
+            </div>
+            <div>
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+            <div>
+                <label for="time">Time:</label>
+                <input type="time" id="time" name="time" required>
+            </div>
+            <div>
+                <label for="purpose">Purpose:</label>
+                <textarea id="purpose" name="purpose" required></textarea>
+            </div>
+            <div>
+                <label for="tags">Tags:</label>
+                <input type="text" id="tags" name="tags" required>
+            </div>
+            <button type="submit">Create Event</button>
+        </form>
+    </div>
+
+    <script>
+
+document.addEventListener('DOMContentLoaded', function () {
+  const createEventForm = document.getElementById('create-event-form');
+  
+  createEventForm.addEventListener('submit', async function (event) {
+      event.preventDefault(); // Prevent default form submission
+      
+      const formData = new FormData(createEventForm);
+      const eventData = {};
+      formData.forEach((value, key) => {
+          eventData[key] = value;
+      });
+
+      try {
+          const response = await fetch('http://localhost:5000/api/events', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(eventData)
+          });
+          
+          if (!response.ok) {
+              throw new Error('Failed to create event');
+          }
+          
+          const createdEvent = await response.json();
+          alert('Event created successfully!');
+          // Redirect to another page or perform any other action as needed
+      } catch (error) {
+          console.error('Error creating event:', error.message);
+          // Handle error
+      }
+  });
+});
+    </script>
+</body>
+</html>
