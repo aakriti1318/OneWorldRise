@@ -47,7 +47,7 @@ db.on('error', (error) => {
 app.use('/api/events', eventsRoutes);
 app.use('/api/blogs', blogsRoutes);
 app.get('/',(req,res)=>{
-    res.sendFile(__dirname,"/Frontend\landing.html");
+    res.sendFile(__dirname,"OneWorldRise/Frontend\landing.html");
 });
 
 
