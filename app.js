@@ -47,7 +47,7 @@ db.on('error', (error) => {
 app.use('/api/events', eventsRoutes);
 app.use('/api/blogs', blogsRoutes);
 // Serve static files from the 'OneWorldRise/Frontend' directory
-app.use(express.static(path.join(__dirname, 'OneWorldRise/Frontend')));
+app.use(express.static(path.join(__dirname, 'OneWorldRise/Frontend/landing.html')));
 
 // Route for the root URL
 app.get('/', (req, res) => {
