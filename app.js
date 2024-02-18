@@ -46,8 +46,13 @@ db.on('error', (error) => {
 // Use Routes
 app.use('/api/events', eventsRoutes);
 app.use('/api/blogs', blogsRoutes);
-app.get('https://oneworldrise.onrender.com/',(req,res)=>{
-    res.sendFile(__dirname,"OneWorldRise/Frontend/landing.html");
+// Serve static files from the 'OneWorldRise/Frontend' directory
+app.use(express.static(path.join(__dirname, 'OneWorldRise/Frontend')));
+
+// Route for the root URL
+app.get('/', (req, res) => {
+  // Since we're using express.static, this route will only be reached if there's no matching static file
+  res.status(404).send('Page not found');
 });
 
 
