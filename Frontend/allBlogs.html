@@ -38,7 +38,7 @@
             const blogsContainer = document.getElementById('blogs-container');
 
             try {
-                const response = await fetch('/api/blogs');
+                const response = await fetch('https://oneworldrise.onrender.com/api/blogs');
                 if (!response.ok) {
                     throw new Error('Failed to fetch blog data');
                 }
