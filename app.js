@@ -13,9 +13,17 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-const uri = process.env.DB_URI;
+//const uri = process.env.DB_URI;
 
-mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+//mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+
+
+const uri = process.env.DB_URI;
+const username=process.env.MONGODB_USERNAME;
+const password=process.env.MONGODB_PASSWORD;
+const mongoDBUrl = `mongodb+srv://${username}:${password}@cluster0.ilsgxpf.mongodb.net/OneWorldRise`;
+
+mongoose.connect(mongoDBUrl, { useNewUrlParser: true, useUnifiedTopology: true });
 
 // Get the default connection
 const db = mongoose.connection;
