@@ -46,6 +46,10 @@ db.on('error', (error) => {
 // Use Routes
 app.use('/api/events', eventsRoutes);
 app.use('/api/blogs', blogsRoutes);
+app.get('/',(req,res)=>{
+    res.sendFile(__dirname,"/Frontend\landing.html");
+});
+
 
 // Example of a simple static file serving setup, adjust as necessary for your project
 app.use(express.static('public'));
