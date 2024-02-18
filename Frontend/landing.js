@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const blogsContainer = document.getElementById('blogs-container');
 
     // Fetch trending events
-    fetch('http://localhost:5000/api/events')
+    fetch('https://oneworldrise.onrender.com/api/events')
         .then(response => response.json())
         .then(trendingEvents => {
             trendingEvents.forEach(event => {
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
         .catch(error => console.error('Error fetching trending events:', error));
 
     // Fetch trending blogs
-    fetch('/api/blogs')
+    fetch('https://oneworldrise.onrender.com/api/blogs')
         .then(response => response.json())
         .then(trendingBlogs => {
             trendingBlogs.forEach(blog => {
