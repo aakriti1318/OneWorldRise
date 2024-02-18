@@ -16,12 +16,12 @@ app.use(cors());
 // Serve the landing.html file when accessing the root URL
 // Serve the landing.html file when accessing the root URL
 app.get('/', (req, res) => {
-  const landingPagePath = path.resolve(__dirname, '..', 'OneWorldRise', 'Frontend', 'landing.html');
+  const landingPagePath = path.resolve(__dirname, '.', 'OneWorldRise', 'Frontend', 'landing.html');
   res.sendFile(landingPagePath);
 });
 
 // Route for other static files (CSS, images, etc.)
-app.use(express.static(path.join(__dirname, '..', 'OneWorldRise', 'Frontend')));
+app.use(express.static(path.join(__dirname, '.', 'OneWorldRise', 'Frontend')));
 //const uri = process.env.DB_URI;
 
 //mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
