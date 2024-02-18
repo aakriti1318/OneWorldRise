@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
         .catch(error => console.error('Error fetching trending events:', error));
 
     // Fetch trending blogs
-    fetch('http://localhost:5000/api/blogs')
+    fetch('/api/blogs')
         .then(response => response.json())
         .then(trendingBlogs => {
             trendingBlogs.forEach(blog => {
