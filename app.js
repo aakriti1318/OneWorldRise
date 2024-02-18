@@ -21,7 +21,7 @@ app.use(cors());
 const uri = process.env.DB_URI;
 //const username=process.env.MONGODB_USERNAME;
 //const password=process.env.MONGODB_PASSWORD;
-const mongoDBUrl = 'mongodb+srv://ankitkr62042:<password>@cluster0.ilsgxpf.mongodb.net/OneWorldRise';
+const mongoDBUrl = 'mongodb+srv://ankitkr62042:ankitkr@cluster0.ilsgxpf.mongodb.net/OneWorldRise';
 
 mongoose.connect(mongoDBUrl, { useNewUrlParser: true, useUnifiedTopology: true });
 
