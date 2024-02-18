@@ -13,7 +13,7 @@
             <div class="logo">
                 <h2>OneWorldRise</h2>
              </div>
-           
+        
         </div>
     </header>
 
@@ -57,41 +57,41 @@
     </div>
 
     <script>
-
 document.addEventListener('DOMContentLoaded', function () {
-  const createEventForm = document.getElementById('create-event-form');
-  
-  createEventForm.addEventListener('submit', async function (event) {
-      event.preventDefault(); // Prevent default form submission
-      
-      const formData = new FormData(createEventForm);
-      const eventData = {};
-      formData.forEach((value, key) => {
-          eventData[key] = value;
-      });
+    const createEventForm = document.getElementById('create-event-form');
+    
+    createEventForm.addEventListener('submit', async function (event) {
+        event.preventDefault(); // Prevent default form submission
+        
+        const formData = new FormData(createEventForm);
+        const eventData = {};
+        formData.forEach((value, key) => {
+            eventData[key] = value;
+        });
 
-      try {
-          const response = await fetch('http://localhost:5000/api/events', {
-              method: 'POST',
-              headers: {
-                  'Content-Type': 'application/json'
-              },
-              body: JSON.stringify(eventData)
-          });
-          
-          if (!response.ok) {
-              throw new Error('Failed to create event');
-          }
-          
-          const createdEvent = await response.json();
-          alert('Event created successfully!');
-          // Redirect to another page or perform any other action as needed
-      } catch (error) {
-          console.error('Error creating event:', error.message);
-          // Handle error
-      }
-  });
+        try {
+            const response = await fetch('/api/events', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(eventData)
+            });
+            
+            if (!response.ok) {
+                throw new Error('Failed to create event');
+            }
+            
+            const createdEvent = await response.json();
+            alert('Event created successfully!');
+            // Redirect to another page or perform any other action as needed
+        } catch (error) {
+            console.error('Error creating event:', error.message);
+            // Handle error
+        }
+    });
 });
+
     </script>
 </body>
 </html>
