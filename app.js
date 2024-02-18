@@ -53,13 +53,7 @@ db.on('error', (error) => {
 app.use('/api/events', eventsRoutes);
 app.use('/api/blogs', blogsRoutes);
 // Serve static files from the 'OneWorldRise/Frontend' directory
-app.use(express.static(path.join(__dirname, 'OneWorldRise/Frontend/landing.html')));
 
-// Route for the root URL
-app.get('/', (req, res) => {
-  // Since we're using express.static, this route will only be reached if there's no matching static file
-  res.status(404).send('Page not found');
-});
 
 
 // Example of a simple static file serving setup, adjust as necessary for your project
