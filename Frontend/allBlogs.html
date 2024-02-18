@@ -49,13 +49,12 @@
 
                 // Create blog cards
                 blogData.forEach(blog => {
-                    const blogCard = document.createElement('div');
+                   const blogCard = document.createElement('div');
                     blogCard.classList.add('blog-card');
                     blogCard.innerHTML = `
                         <h2>${blog.title}</h2>
-                        <p><strong>Author:</strong> ${blog.author}</p>
-                        <p><strong>Date:</strong> ${blog.date}</p>
-                        <p><strong>Tags:</strong> ${blog.tags.split(',').map(tag => `<span class="tag">${tag.trim()}</span>`).join(' ')}</p>
+                        <p>${blog.content}</p>
+                        <p><strong>country:</strong> ${blog.country}</p>
                     `;
                     blogsContainer.appendChild(blogCard);
                 });
