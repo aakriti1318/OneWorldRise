@@ -31,7 +31,7 @@ app.use(express.static(path.join(__dirname, 'Frontend')));
 const uri = process.env.DB_URI;
 //const username=process.env.MONGODB_USERNAME;
 //const password=process.env.MONGODB_PASSWORD;
-const mongoDBUrl = 'mongodb+srv://ankitkr62042:ankitkr@cluster0.ilsgxpf.mongodb.net/OneWorldRise';
+const mongoDBUrl = 'mongodb+srv://ankitkr62042:JuTDz7Fgi7OQ6AG@cluster0.ilsgxpf.mongodb.net/OneWorldRise';
 
 mongoose.connect(mongoDBUrl, { useNewUrlParser: true, useUnifiedTopology: true });
 
